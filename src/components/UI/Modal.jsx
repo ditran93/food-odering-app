@@ -1,18 +1,11 @@
 import ReactDOM from "react-dom";
 
-const ModalOverlay = (props) => {
-  return (
-    <div className="modal">
-      <div>{props.children}</div>
-    </div>
-  );
-};
-export default function Modal(props) {
+export default function Modal({children}) {
   const portalElement = document.getElementById("modal");
   return (
     <>
       {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <dialog>{children}</dialog>,
         portalElement
       )}
     </>
